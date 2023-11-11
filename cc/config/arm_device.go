@@ -39,7 +39,8 @@ var (
 		"-Wl,-m,armelf",
 	}
 
-	armLldflags = ClangFilterUnknownLldflags(armLdflags)
+	armLldflags = append(ClangFilterUnknownLldflags(armLdflags),
+		"-Wl,-z,max-page-size=16384")
 
 	armArmCflags = []string{
 		"-fstrict-aliasing",
